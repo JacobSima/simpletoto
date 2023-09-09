@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react'
-import { cloneDeep } from 'lodash'
 import Todos from './components/Todos'
 import { Todo, InsertToDo } from '../types'
 import AddTask from './components/AddTask'
@@ -25,7 +24,7 @@ const App = () => {
     });
     // update the API call
     const headers = {'Content-Type': 'application/json', 'Authorization' : 'Bearer jacob-sima-token'};
-    const options = {method: 'patch', headers, body: JSON.stringify(todo)};
+    const options = {method: 'PATCH', headers, body: JSON.stringify(todo)};
     await fetch(`https://todos.appsquare.io/todos/${todo.id}`, options)
     return todos;
   }
